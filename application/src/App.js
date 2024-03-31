@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 function App() {
   const [summary, setSummary] = useState("");
   const [articleLen, setArticleLen] = useState(0);
@@ -100,11 +99,11 @@ function App() {
           SUBMIT
         </button>
       </form>
-      {showBox == 1 && (
+      {showBox === 1 && (
         <div>
           <h3 className="text-[2rem] mt-10">OUTPUT</h3>
           <div className="text-[0.9rem] font-SourceCodePro mt-2 flex flex-col">
-            {articleLen != 0 && 
+            {articleLen !== 0 && 
             <>
               <p>Article → Summary</p>
             <p>
