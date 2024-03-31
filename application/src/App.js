@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import logo from "./assets/logo.png";
 function App() {
   const [summary, setSummary] = useState("");
   const [articleLen, setArticleLen] = useState(0);
@@ -9,15 +10,15 @@ function App() {
   const [url, setUrl] = useState("");
 
   const handleUrlChange = (event) => {
-    const newValue = event.target.value; 
-    setUrl(newValue); 
+    const newValue = event.target.value;
+    setUrl(newValue);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     const endpointUrl = "http://localhost:5000/summary";
     setShowBox(1);
     setSummary("Loading...");
-    setArticleLen(0)
+    setArticleLen(0);
     setSummLen(0);
     fetchSummary(endpointUrl);
   };
@@ -43,7 +44,7 @@ function App() {
   };
   const handlePercentageChange = (event) => {
     const newValue = parseInt(event.target.value);
-    setPercentage(newValue); 
+    setPercentage(newValue);
   };
 
   const handleCopy = () => {
@@ -53,7 +54,10 @@ function App() {
   };
   return (
     <div className="text-[2rem] mx-[5rem] mt-[10rem] font-Nothing font-medium h-full">
-      TEXT SUMMARIZER @ HSM🔖
+      <div className="w-fit h-fit flex gap-2">
+        TEXT SUMMARIZER @ HSM
+        <img src={logo} alt="logo" className="w-[3rem] h-[3rem]"/>
+      </div>
       <form onSubmit={handleSubmit} class="mt-8 font-SourceCodePro">
         <div class="relative z-0 w-full mb-5 group">
           <input
@@ -103,14 +107,14 @@ function App() {
         <div>
           <h3 className="text-[2rem] mt-10">OUTPUT</h3>
           <div className="text-[0.9rem] font-SourceCodePro mt-2 flex flex-col">
-            {articleLen !== 0 && 
-            <>
-              <p>Article → Summary</p>
-            <p>
-              {articleLen} → {summLen}
-            </p>
-            </>
-            }
+            {articleLen !== 0 && (
+              <>
+                <p>Article → Summary</p>
+                <p>
+                  {articleLen} → {summLen}
+                </p>
+              </>
+            )}
             <div className="flex gap-2">
               <button
                 onClick={handleCopy}
@@ -142,7 +146,7 @@ function App() {
         </div>
       )}
       <footer className="w-full  h-[5rem] mt-20 flex justify-center items-end pb-3 text-[1rem]">
-                  Made by @ HSM 
+        Made by @ HSM
       </footer>
     </div>
   );
