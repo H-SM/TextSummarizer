@@ -41,4 +41,4 @@ def your_route_function():
     # Return the summary
     return jsonify({"summary": summary, "lengthA" : lenarticle, "lengthS" : lensummary})
 
-#  flask --app server run --debug 
+#  flask --app index run --debug 
