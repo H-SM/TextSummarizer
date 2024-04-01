@@ -17,8 +17,8 @@ def get_members():
     return jsonify(members)
 
 @app.route('/')
-def home_page():
-    return {"page": "this is server"}
+def home():
+    return "Text Summarizer @ HSM - Backend", 200
 
 @app.route('/summary', methods=['POST'])
 def your_route_function():
